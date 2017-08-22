@@ -3,9 +3,10 @@ package lesson_1;
 import java.util.Scanner;
 
 public class Task1 {
-    private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
         System.out.println("Введите первое число");
         double firstNum = scanner.nextDouble();
         System.out.println("Введите второе число");
@@ -16,6 +17,9 @@ public class Task1 {
 
         // 2 вариант
         System.out.println("Результат: " + solveEquationVar2(firstNum, secondNum));
+
+
+        scanner.close();
 
 
     }
