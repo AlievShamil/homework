@@ -16,7 +16,7 @@ public class Task1 {
         solveEquationAndPrintVar1(firstNum, secondNum);
 
         // 2 вариант
-        System.out.println("Результат: " + solveEquationVar2(firstNum, secondNum));
+        System.out.println("\n" + "(Var2) Результат: " + solveEquationVar2(firstNum, secondNum));
 
 
         scanner.close();
@@ -27,7 +27,7 @@ public class Task1 {
     // Вариант 1 (решить все и сразу)
     private static void solveEquationAndPrintVar1(double num1, double num2) {
         double result = 3 * (num1 + 2 * num1 - num2) / (2 * num1);
-        System.out.println("Результат вычисления: " + result);
+        System.out.println("(Var1) Результат вычисления: " + result);
     }
 
     /* Вариант 2:
@@ -55,6 +55,7 @@ public class Task1 {
         return num1 / num2;
     }
 
+    // Очень сложно читать, но оно работает
     private static double solveEquationVar2(double num1, double num2) {
         return div(mul(3, sub(add(num1, mul(2, num1)), num2)), mul(2, num1));
     }
