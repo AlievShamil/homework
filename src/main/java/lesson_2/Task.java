@@ -6,37 +6,54 @@ import java.util.Scanner;
 import static java.lang.String.format;
 
 public class Task {
+
+    private static final int FIRST_TASK = 1;
+    private static final int SECOND_TASK = 2;
+    private static final int THIRD_TASK = 3;
+
+    private static final String INIT_TEXT = "Введите номер задачи";
+
     public static void main(String[] args) {
+
         int[] array = {3, 1, 2, 2, 3, 4, 5, 2, 2, 12, 4, 2, 5, 6, 6, 3, 2, 3, 3, 3, 3, 2};
-        boolean isPressQ = false;
+
+        go(array);
+    }
+
+    private static void go(int[] array) {
         Scanner scanner = new Scanner(System.in);
+        boolean isPressQ = false;
+        System.out.println(INIT_TEXT);
 
         while (!isPressQ) {
-            System.out.println("Введите номер задания");
             String value = scanner.next();
-            if (value.equals("q")) {
-                System.out.println("Good Bye!");
-                isPressQ = true;
-            } else {
+            try {
                 switch (Integer.parseInt(value)) {
-                    case 1:
+                    case FIRST_TASK:
                         sortArrayAndPrint(array);
                         break;
-                    case 2:
+                    case SECOND_TASK:
                         findSumMinAndMaxAndPrint(array);
                         break;
-                    case 3:
+                    case THIRD_TASK:
                         findMostTimesRepeatedNumberAndPrint(array);
                         break;
                     default:
-                        System.out.println("Введите 1, 2 или 3");
-
+                        System.out.println("\nВведите 1, 2 или 3");
+                }
+            } catch (NumberFormatException ex) {
+                if (value.equals("q")) {
+                    System.out.println("Good Bye!");
+                    isPressQ = true;
+                    scanner.close();
+                } else {
+                    System.out.println(format("\n%s",INIT_TEXT));
                 }
             }
         }
     }
 
-
+    // 1 Задание: сортировка с помощью Arrays.sort() и вывод с конца
     private static void sortArrayAndPrint(int[] array) {
         Arrays.sort(array);
 
@@ -48,15 +65,18 @@ public class Task {
                 System.out.print(format("%s\n\n", elem));
             }
         }
+        System.out.println(INIT_TEXT);
     }
 
+    // 2 Задание: сортировка с помощью Arrays.sort() и сумма первого и последнего элемента
     private static void findSumMinAndMaxAndPrint(int[] array) {
         Arrays.sort(array);
         int sum = array[array.length - 1] + array[0];
-        System.out.println(format("Сумма min и max равна: %s\n\n", sum));
+        System.out.println(format("Сумма min и max равна: %s\n\n%s", sum, INIT_TEXT));
 
     }
 
+    // 3 Задание: даже не знаю как объяснить =)
     private static void findMostTimesRepeatedNumberAndPrint(int[] array) {
         String result = "";
         int maxRepeat = 0;
@@ -79,7 +99,11 @@ public class Task {
                 }
             }
         }
-        System.out.println(format("%s количество повторений - %s\n", result, maxRepeat));
+        String newStr = result.length() <= 1 ?
+                format("Число - %s, количество повторений: %s\n\n%s", result, maxRepeat,INIT_TEXT) :
+                format("Числа - %s, количество повторений: %s\n\n%s", result, maxRepeat,INIT_TEXT);
+        System.out.println(newStr);
+
     }
 
 }
