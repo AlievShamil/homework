@@ -27,6 +27,7 @@ public class Task {
 
         while (!isPressQ) {
             String value = scanner.next();
+
             try {
                 switch (Integer.parseInt(value)) {
                     case FIRST_TASK:
@@ -47,7 +48,19 @@ public class Task {
                     isPressQ = true;
                     scanner.close();
                 } else {
-                    System.out.println(format("\n%s",INIT_TEXT));
+                    System.out.println(format("\n%s", INIT_TEXT));
+                }
+            }
+        }
+    }
+
+    private static void arraySort(int[] array) {
+        for (int i = 0; i < array.length - 1; i++) {
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[i] > array[j]) {
+                    int temp = array[j];
+                    array[j] = array[i];
+                    array[i] = temp;
                 }
             }
         }
@@ -55,7 +68,7 @@ public class Task {
 
     // 1 Задание: сортировка с помощью Arrays.sort() и вывод с конца
     private static void sortArrayAndPrint(int[] array) {
-        Arrays.sort(array);
+        arraySort(array);
 
         for (int i = array.length; i > 0; i--) {
             int elem = array[i - 1];
@@ -100,8 +113,8 @@ public class Task {
             }
         }
         String newStr = result.length() <= 1 ?
-                format("Число - %s, количество повторений: %s\n\n%s", result, maxRepeat,INIT_TEXT) :
-                format("Числа - %s, количество повторений: %s\n\n%s", result, maxRepeat,INIT_TEXT);
+                format("Число - %s, количество повторений: %s\n\n%s", result, maxRepeat, INIT_TEXT) :
+                format("Числа - %s, количество повторений: %s\n\n%s", result, maxRepeat, INIT_TEXT);
         System.out.println(newStr);
 
     }
