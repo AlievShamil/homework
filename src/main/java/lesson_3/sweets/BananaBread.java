@@ -12,6 +12,6 @@ public class BananaBread extends Sweetness {
 
     @Override
     public String toString() {
-        return super.toString() + " калорийность - " + calories;
+        return super.toString() + ", калорийность - " + calories;
     }
 }

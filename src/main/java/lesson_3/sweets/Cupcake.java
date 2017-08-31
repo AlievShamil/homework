@@ -12,6 +12,6 @@ public class Cupcake extends Sweetness {
 
     @Override
     public String toString() {
-        return super.toString()+descName;
+        return super.toString()+","+descName;
     }
 }

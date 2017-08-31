@@ -12,7 +12,7 @@ public class ApplePie extends Sweetness {
 
     @Override
     public String toString() {
-        return super.toString() + " Сорт яблок - " + appleBrand;
+        return super.toString() + ", Сорт яблок - " + appleBrand;
 
     }
 }
