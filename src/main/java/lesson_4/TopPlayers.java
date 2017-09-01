@@ -20,14 +20,14 @@ public class TopPlayers {
         map.put("Лионель Месси", 985);
 
         Map<String, Integer> sortedMap = sortAndRevers(map);
-
+        // 1. Вывести отсортированный по убыванию список очков всех игроков
         printMap(sortedMap.values());
         System.out.println("---------------------------------");
-
+        // 2. Вывести список игроков с их очками по убыванию
         printMap(sortedMap);
         System.out.println("---------------------------------");
-
-        printMap(sortedMap, 3);
+        //3. Вывести топ-3 игрока с максимальным количеством очков
+        printMap(sortedMap, 5);
 
     }
 
@@ -47,7 +47,7 @@ public class TopPlayers {
         map.putAll(copy);
         return map;
     }
-
+    // Создал 3 перегруженных метода на каждый случай
     public static void printMap(Collection<Integer> col) {
         System.out.println("Отсортированный по убыванию список очков всех игроков:");
         for (int i : col) {
